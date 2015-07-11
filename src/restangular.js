@@ -1307,7 +1307,7 @@ restangular.provider('Restangular', function() {
         serv.getList = _.bind(collection.getList, collection);
 
         for (var prop in collection) {
-          if (collection.hasOwnProperty(prop) && _.isFunction(collection[prop]) && !_.contains(knownCollectionMethods, prop)) {
+          if (collection.hasOwnProperty(prop) && _.isFunction(collection[prop]) && _.contains(knownCollectionMethods, prop)) {
             serv[prop] = _.bind(collection[prop], collection);
           }
         }
